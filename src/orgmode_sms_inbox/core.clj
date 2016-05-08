@@ -30,7 +30,7 @@
   (let [incoming-number (get-in request [:params :From])
         incoming-message (get-in request [:params :Body])]
     (println request)
-    (println body)
+    (println (:body request))
     (if (= incoming-number allowed-incoming-number)
       (do
         (send-to-ifttt incoming-message)
