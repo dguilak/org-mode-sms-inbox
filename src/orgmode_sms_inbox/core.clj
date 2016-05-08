@@ -33,12 +33,15 @@
       (do
         (send-to-ifttt incoming-message)
         (return-twilio-message "Got it, keep on truckin'!"))
-      return-unauthorized)))
+      (do
+        (binding [*out* *err*]
+          (println (str "Bad number! Got " incoming-number ", wanted " allowed-incoming-number)))
+        return-unauthorized))))
 
 (defroutes app
   (POST "/incoming" [] incoming-text))
 
 (defn -main []
-  (let [port (Integer/parseInt (or (System/getenv "PORT") "8000"))]
+  (let [port (Integer/parseInt (or (System/getenv "PORT") "5000"))]
     (run-server app {:port port})
     (println (str "listening on port " port))))
