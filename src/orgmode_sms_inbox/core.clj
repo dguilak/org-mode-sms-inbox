@@ -3,10 +3,12 @@
             [org.httpkit.server :refer [run-server]]
             [clojure.pprint :refer [pprint]]
             [org.httpkit.client :as client]
-            [ring.middleware.defaults :refer :all]))
+            [ring.middleware.defaults :refer :all]
+            [ring.middleware.params :refer :all]))
 
 (def ifttt-dropbox-url (System/getenv "IFTTT_DROPBOX_URL"))
 (def allowed-incoming-number (System/getenv "ALLOWED_INCOMING_NUMBER"))
+;; (def api-key (System/getenv "SMS_API_KEY"))
 
 (defn return-twilio-message [message]
   { :status 200 :headers { "Content-Type" "application/xml" } :body (str "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
@@ -27,10 +29,8 @@
   (send-to-ifttt (str "TODO: " content)))
 
 (defn incoming-text [request]
-  (let [incoming-number (get-in request [:params :From])
-        incoming-message (get-in request [:params :Body])]
-    (println request)
-    (println (:body request))
+  (let [incoming-number (get-in request [:params "From"])
+        incoming-message (get-in request [:params "Body"])]
     (if (= incoming-number allowed-incoming-number)
       (do
         (send-to-ifttt incoming-message)
@@ -45,5 +45,5 @@
 
 (defn -main []
   (let [port (Integer/parseInt (or (System/getenv "PORT") "5000"))]
-    (run-server app {:port port})
+    (run-server (wrap-params app :params) {:port port})
     (println (str "listening on port " port))))
