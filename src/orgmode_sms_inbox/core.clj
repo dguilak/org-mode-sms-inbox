@@ -8,11 +8,11 @@
 
 (def ifttt-dropbox-url (System/getenv "IFTTT_DROPBOX_URL"))
 (def allowed-incoming-number (System/getenv "ALLOWED_INCOMING_NUMBER"))
-;; (def api-key (System/getenv "SMS_API_KEY"))
 
 (defn return-twilio-message [message]
-  { :status 200 :headers { "Content-Type" "application/xml" } :body (str "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
-<Response> <Message>" message "</Message> </Response>")})
+  {:status 200
+   :headers { "Content-Type" "application/xml" }
+   :body (str "<?xml version=\"1.0\" encoding=\"UTF-8\" ?> <Response> <Message>" message "</Message> </Response>")})
 
 (def return-unauthorized { :status 401 })
 
@@ -24,9 +24,6 @@
                  (println error)
                  (println body)
                  (println headers))))
-
-(defn send-TODO-to-ifttt [content]
-  (send-to-ifttt (str "TODO: " content)))
 
 (defn incoming-text [request]
   (let [incoming-number (get-in request [:params "From"])
@@ -41,7 +38,7 @@
         return-unauthorized))))
 
 (defroutes app
-  (POST "/incoming" [] incoming-text))
+  (POST "/incoming" [request] incoming-text))
 
 (defn -main []
   (let [port (Integer/parseInt (or (System/getenv "PORT") "5000"))]
