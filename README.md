@@ -7,7 +7,7 @@ Easily capture ideas or TODOs into org-mode through an app almost everyone has i
 
 [Read about this silly project](http://dbg.io/org-mode-sms-inbox)
 
-(screenshot)
+![Sample conversation with Emacs](/img/sample-conversation.png)
 
 # Prerequisites
 
