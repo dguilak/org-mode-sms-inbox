@@ -51,6 +51,16 @@ that you set when setting up the IFTTT recipe.
 You can, of course, deploy this anywhere you'd want. I just used Heroku because I knew it'd be easy
 to replicate and it'll run easily on the free tier.
 
+## Known Issues
+
+It takes the Heroku instance a little over 15 seconds to awake once it gets some traffic coming its way. Unfortunately,
+Twilio's incoming message API has a 15-second timeout, so you're going to get an `HTTP 11200` error because it'll think the
+server is unresponsive, and you won't get the "Got it!" message. Any subsequent messages before it falls asleep again
+will provide the right confirmation message.
+
+The important thing is that your input gets logged, which is still the case.
+
+
 ## FAQ
 
 ### Why didn't you build note-reading functionality?
