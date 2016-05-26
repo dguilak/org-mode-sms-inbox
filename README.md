@@ -1,6 +1,8 @@
 # org-mode-sms-inbox #
 [](https://github.com/dguilak/org-mode-sms-inbox)
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 Easily capture ideas or TODOs into org-mode through an app almost everyone has installed: SMS!
 
 [Read about this silly project](http://dbg.io/org-mode-sms-inbox)
@@ -34,7 +36,7 @@ Sign up for an [IFTTT account](http://ifttt.com/) and install [this recipe](http
 
 ## Deploy
 
-*(deploy to Heroku button coming soon!)*
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 If you want to just deploy this to Heroku (the free tier is *more* than enough for an applcation only you are using), click the button
 above and enter the two config variables you need:

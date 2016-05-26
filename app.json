@@ -1,0 +1,16 @@
+{
+  "name": "org-mode-sms-inbox",
+  "description": "Text a number to add stuff to org-mode!",
+  "repository": "https://github.com/dguilak/org-mode-sms-inbox",
+  "keywords": ["clojure", "emacs", "org-mode"],
+  "env": {
+    "IFTTT_DROPBOX_URL": {
+      "description": "IFTTT endpoint to recipe linked to dropbox",
+      "required": true
+    },
+    "ALLOWED_INCOMING_NUMBER": {
+      "description": "Number allowed to add items (e.g., +15555555555)",
+      "required": true
+    }
+  }
+}
