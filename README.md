@@ -81,6 +81,10 @@ further functionality to be built out later (like finding notes).
 
 Send me a PR, why not?
 
+## Disclaimer
+
+Use at your own risk, I have by no means tested this extensively.
+
 ## License
 
     org-mode-sms-inbox
