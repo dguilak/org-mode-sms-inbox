@@ -1,6 +1,7 @@
 {
   "name": "org-mode-sms-inbox",
   "description": "Text a number to add stuff to org-mode!",
+  "logo": "https://raw.githubusercontent.com/dguilak/org-mode-sms-inbox/master/img/512-logo.png",
   "repository": "https://github.com/dguilak/org-mode-sms-inbox",
   "keywords": ["clojure", "emacs", "org-mode"],
   "env": {
