@@ -1,3 +1,7 @@
+<p align="center">
+ <img alt="org-mode-sms-inbox badge" src="https://raw.githubusercontent.com/dguilak/org-mode-sms-inbox/master/img/512-logo.png" width=256 height=256>
+</p>
+
 # org-mode-sms-inbox #
 [](https://github.com/dguilak/org-mode-sms-inbox)
 
